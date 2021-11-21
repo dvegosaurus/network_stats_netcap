@@ -1,0 +1,25 @@
+# # config file version
+apiVersion: 1
+
+datasources:
+  - name: netcap
+    type: influxdb
+    access: proxy
+    url: http://influxdb:8086
+    database: telegraf
+
+  - name: packetbeat
+    type: elasticsearch
+    access: proxy
+    basicAuthUser: elastic
+    basicAuth: true
+    database: "packet*"
+    url: http://elasticsearch:9200
+    jsonData:
+      timeField: "@timestamp"
+      esVersion: "7.7.0"
+      includeFrozen: False
+    secureJsonData:
+        basicAuthPassword: changeme
+
+
