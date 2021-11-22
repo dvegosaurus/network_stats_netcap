@@ -5723,7 +5723,7 @@
             "text": "All",
             "value": "$__all"
           },
-          "datasource": "Prometheus",
+          "datasource": "prometheus",
           "definition": "label_values(host)",
           "hide": 0,
           "includeAll": true,
@@ -5752,7 +5752,7 @@
               "$__all"
             ]
           },
-          "datasource": "Prometheus",
+          "datasource": "prometheus",
           "definition": "label_values(instance)",
           "hide": 0,
           "includeAll": true,
