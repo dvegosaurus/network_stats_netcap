@@ -7,6 +7,13 @@ volumes:
       type: 'none'
       o: 'bind'
       device: '/etc/docker/docker-data/influxDB'
+  prometheus-volume:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/etc/docker/docker-data/prometheus'
+
   elasticsearch:
 
 services:
@@ -20,6 +27,7 @@ services:
     image: grafana/grafana
     volumes:
       - ./grafana/provisionning:/etc/grafana/provisioning
+      - ./grafana/plugins:/var/lib/grafana/plugins
     ports: 
       - 3000:3000
 
@@ -95,4 +103,16 @@ services:
       - "5601:5601"
     depends_on:
       - elasticsearch
+  
+  prometheus:
+    image: prom/prometheus:v2.11.1
+    container_name: prometheus
+    volumes:
+      - prometheus-volume:/prometheus
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=365d'
+    network_mode: "host"
   

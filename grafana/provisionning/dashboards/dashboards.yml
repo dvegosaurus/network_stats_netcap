@@ -1,0 +1,12 @@
+apiVersion: 1
+
+providers:
+  # <string> an unique provider name. Required
+  - name: 'netcap'
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: false
+    options:
+      path: /etc/grafana/provisioning/dash
+      # <bool> use folder names from filesystem to create folders in Grafana
+      foldersFromFilesStructure: true

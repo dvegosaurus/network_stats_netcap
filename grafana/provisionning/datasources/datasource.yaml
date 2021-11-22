@@ -21,5 +21,11 @@ datasources:
       includeFrozen: False
     secureJsonData:
         basicAuthPassword: changeme
+  
+  - name: prometheus
+    type: prometheus
+    access: proxy
+    url: http://192.168.42.69:9090
+
 
 
