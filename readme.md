@@ -1,5 +1,14 @@
 # network stats with netcap
 
+Docker setup to test network monitoring with Grafana. Several setup with different capture method and databases are used :
+- netcap to InfluxDB | OK
+- netcap to Prometheus | todo
+- Packetbeat to ElasticSearch | OK
+    - with Kibana and logstash
+- Wireshark to Elasticsearch | todo
+
+Some setup with Graylog and or Loki might be interesting to try.
+
 ## URI
 
 Kibana:
