@@ -12,8 +12,6 @@ volumes:
 services:
   netcap:
     image: dreadl0ck/netcap:alpine-v0.5
-    ports:
-      - 7777:7777
     command: >
       net export -iface eth0 -dpi=true -reverse-dns=true
     network_mode: host

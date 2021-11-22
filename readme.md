@@ -43,6 +43,7 @@ http://dockerhost:3000
 - Run docker compose
 - install packetbeat
     - add the config file
+- Download and install Winpcap
 
 Netcap and telegraf are attached to the host network to allow testing with port mirroring.
 Packetbeat is not included and needs to installed on a client
