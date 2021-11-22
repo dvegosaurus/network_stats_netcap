@@ -9,12 +9,18 @@ Docker setup to test network monitoring with Grafana. Several setup with differe
 
 Some setup with Graylog and or Loki might be interesting to try.
 
-## URI
+##  Sources 
+
+netcap setup : https://docs.netcap.io/metrics
+wireshark / filebeat setup : https://www.elastic.co/fr/blog/analyzing-network-packets-with-wireshark-elasticsearch-and-kibana
+
+## URIS
 
 Kibana:
-http://<dockerhost>:5601
+http://dockerhost:5601
+
 Grafana:
-http://<dockerhost>:3000
+http://dockerhost:3000
 
 ## Docker
 - Grafana
@@ -39,6 +45,7 @@ http://<dockerhost>:3000
     - add the config file
 
 Netcap and telegraf are attached to the host network to allow testing with port mirroring.
+Packetbeat is not included and needs to installed on a client
 
 ### ElasticSearch config
 ElasticSearch need some config to work with packetbeat. Kibana will handle this for us :
